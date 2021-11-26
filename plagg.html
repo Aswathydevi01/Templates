@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <style>
+   *{
+  margin:0;
+  padding: 0;
+  list-style:none;
+  box-sizing:border-box;
+  text-decoration:none;
+  font-family:'Montserrat',sans-serif;
+ }
+
+ .wrapper{
+    width:100%;
+    height:100%;
+ }
+
+.top_navbar{
+    background: #80cbc4;
+    height: 60px;
+    display:flex;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+ }
+
+ .top_navbar .hamburger{
+     width:80px;
+     background:#004d40;
+     position: relative;
+     font-size:28px;
+ }
+
+.top_navbar .hamburger .hamburger_inner{
+      position:absolute;
+      top: 50%;
+      left:50%
+      transform:translate(-50%,-50%)
+      cursor:pointer;
+      width:40px;
+      height:20px;
+  }
+.top_navbar .hamburger .hamburger_inner> div{
+    width:30px;
+    height:2px;
+    background:#fff;
+    position:absolute;
+    top:0;
+    left:0;
+ }
+ .top_navbar .hamburger .hamburger_inner div.two{
+      top:10px;
+      width:40px;
+ }
+ .top_navbar .hamburger .hamburger_inner div.three{
+        top:20px;
+ }
+ .top_navbar .menu{
+    width:calc(100% -80px);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 15px;
+    }
+ .top_navbar .menu .logo{
+    color: #004d40;
+    text-transform:uppercase;
+    letter-spacing:3px;
+ }
+ .main_container .sidebar{
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width:290px;
+    height: 250%;
+    background: #004d40;
+    transition: all 0.3s ease;
+  }
+  .main_container .sidebar .sidebar_inner{
+    position:relative;
+  }
+  .main_container .sidebar ul li a{
+    color:#fff;
+    font-size:18px;
+    padding: 20px 30px;
+    display: flex;
+    align-items:center;
+    margin-bottom:1 px;
+    white-space:nowrap;
+    transition:all 0.3s ease;
+}
+   .main_container .sidebar ul li a .icon{
+    margin-right:15px;
+    font-size:28px;
+  }
+   .main_container .sidebar ul li a span{
+       display:inline-block;
+       }
+    .main_container .sidebar ul li a:hover,
+    .main_container .sidebar ul li a.active{
+        background:#fff;
+        color:#004d40;
+     }
+
+button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: blue;
+}
+textarea {
+  width: 500px;
+  height: 150px;
+  font-size: 11px;
+}
+    .main_container .logo span{
+        color:#fff;
+    }
+
+    .main_container .content{
+        padding:25px;
+        height: calc(100% -60px);
+        overflow:auto;
+    }
+
+    .main_container .content .item{
+        background:#e3f2f1;
+        padding:50px;
+        margin-botton:25px;
+    }
+
+    @media (max-width:768px){
+        .top_navbar .hamburger{
+          display:inline-block;
+    }
+   .loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+</style>
+    <meta charset="UTF-8">
+    <title>OPC</title>
+
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script>
+        $(document).ready(function(){
+        })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="top_navbar">
+        <div class="hamburger">
+            <div class="hamburger_inner">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="logo">
+                Plagiarism Checker
+            </div>
+        </div>
+    </div>
+</div>
+     <div class="main_container">
+         <div class="sidebar">
+             <div class="sidebar_top">
+                     </div>
+                     <br>
+              <br> <br> <br> <br>
+         <ul>
+             <li>
+                &nbsp&nbsp <a href="#" class="active">
+                     <span class="icon"><i class= "fa fa-search">
+                     </i></span>
+                     <span class="text">Online Plagiarism</span></a></li>
+              <li>
+                  &nbsp&nbsp<a href="files">
+                     <span class="icon"><i class= "far fa-edit">
+                     </i></span>
+                     <span class="text">PDF Checker</span>
+                 </a></li>
+             <li>
+                 &nbsp&nbsp <a href="#">
+                     <span class="icon"><i class="far fa-file-alt">
+                     </i></span>
+                     <span class="text">Side BY Side Comparison</span>
+                 </a></li>
+         </ul>
+     </div>
+         <div class="container">
+             <div class="top_bar">
+                 <div class="hamburger">
+                     <i class="fas fa-bars"></i>
+                     </div>
+                 </div>
+             <div class="content">
+             <div class="item">
+                 <br>
+                 <br><br><br><br><br><br><br>
+                 <center>
+                     <h2>Online Plagiarism</h2>
+                 <form action="/report" method="POST">
+                             <textarea id="fname" name='text'  placeholder="paste your content" rows="29" cols="60"></textarea>
+                                    <br>
+                     <button type="Submit" value="Send" >Generate Report</button>
+
+                <p>You will be redirected once your report is generated.</p>
+                     <p>Time to generate report depends on length of text.</p></form>
+                 </center></div>
+             </div>
+             </div>
+
+
+     </div>
+     </div>
+</body>
+</html>
