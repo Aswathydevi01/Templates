@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
-<title>opc</title>
-<style>
+
+    <meta charset="UTF-8">
+    <title>Upload File</title>
+    <style>
+
 body{
   align:center;
   background-color: lightblue;
@@ -69,13 +72,14 @@ textarea {
 .sidebar-brand {
     height: 90px;
     padding: 1rem 0rem 1rem 2rem;
-    color: #fff;
+
 
 }
 
 .sidebar-brand span {
     display: inline-block;
     padding-right: 0.5rem;
+    color: #fff;
 }
 
 .sidebar-menu {
@@ -230,7 +234,43 @@ main {
 
 
 
+.file-upload {
+  display: inline-flex;
+  align-items: center;
+  font-size: 15px;
+}
 
+.file-upload__input {
+  display: none;
+}
+
+.file-upload__button {
+  -webkit-appearance: none;
+  background: #009879;
+  border: 2px solid #00745d;
+  border-radius: 4px;
+  outline: none;
+  padding: 0.5em 0.8em;
+  margin-right: 15px;
+  color: #ffffff;
+  font-size: 1em;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.file-upload__button:active {
+  background: #00745d;
+}
+
+.file-upload__label {
+  max-width: 250px;
+  font-size: 0.95em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Quicksand", sans-serif;
+}
 </style>
 <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
@@ -250,17 +290,13 @@ main {
 
     <div class="sidebar-menu">
         <ul>
-            <li>
-                <a href="/dashboard" class=""><span class="las la-home"></span>
-                    <span>Dashboards</span></a>
-            </li>
 
             <li>
-                <a href="/plagg" class="active"><span class="fa fa-search"></span>
+                <a href="/plagg" class=""><span class="fa fa-search"></span>
                     <span>Online Plagiarism</span></a>
             </li>
             <li>
-                <a href="/file"><span class="far fa-edit"></span>
+                <a href="/file" class="active"><span class="far fa-edit"></span>
                     <span>PDF Checker</span></a>
             </li>
             <li>
@@ -281,26 +317,58 @@ main {
         <h2>
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
-            </label> OPC
+            </label> PDFCR
         </h2>
     </header>
 
-<center><br><br><br><br><br><br><br><br>
-<h2> Online Plagiarism Checker </h2>
+    <form action="/report" method="POST">
+        <center>
+    <h1>PDF Checker</h1>
+    <div class="file-upload">
+  <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple>
+  <button class="file-upload__button" type="button">Choose File(s)</button>
+  <span class="file-upload__label"></span>
+        <br><br><br><br><br><br>
 
-<form action="/report" method="POST">
 
-  <textarea id ="fname"  placeholder="Your Paste here" name='text' rows="2"></textarea>
-  <br>
-  <button type="Submit" value="Send">Generate Report</button>
-  <input type="reset" value="Reset">
+     &nbsp &nbsp &nbsp &nbsp   <input type="submit" value="Generate Report">
+        <br>
+</div>
+<script>
+Array.prototype.forEach.call(
+  document.querySelectorAll(".file-upload__button"),
+  function(button) {
+    const hiddenInput = button.parentElement.querySelector(
+      ".file-upload__input"
+    );
+    const label = button.parentElement.querySelector(".file-upload__label");
+    const defaultLabelText = "No file(s) selected";
 
-</form>
+    // Set default text for label
+    label.textContent = defaultLabelText;
+    label.title = defaultLabelText;
 
-<p>You will be redirected once your report is generated.</p>
+    button.addEventListener("click", function() {
+      hiddenInput.click();
+    });
 
-<p>Time to generate report depends on length of text.</p>
-</center>
+    hiddenInput.addEventListener("change", function() {
+      const filenameList = Array.prototype.map.call(hiddenInput.files, function(
+        file
+      ) {
+        return file.name;
+      });
+
+      label.textContent = filenameList.join(", ") || defaultLabelText;
+      label.title = label.textContent;
+    });
+  }
+);
+</script>
+        </center>
+    </form>
   </div>
+  </form>
+</center>
 </body>
 </html>
